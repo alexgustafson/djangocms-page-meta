@@ -28,7 +28,7 @@ class PageMeta(PageExtension):
     image = FilerFileField(
         null=True, blank=True, related_name='djangocms_page_meta_page',
         help_text=_('Used if title image is empty.'),
-        on_delete=models.CASCADE
+        on_delete=models.SET_NULL
     )
     og_type = models.CharField(
         _('Resource type'), max_length=255, choices=meta_settings.FB_TYPES, blank=True,
@@ -36,7 +36,7 @@ class PageMeta(PageExtension):
     )
     og_author = models.ForeignKey(
         settings.AUTH_USER_MODEL, verbose_name=_('Author account'), null=True, blank=True,
-        on_delete=models.CASCADE,
+        on_delete=models.SET_NULL,
     )
     og_author_url = models.CharField(
         _('Author Facebook URL'), max_length=255, default='', blank=True
@@ -99,7 +99,7 @@ class TitleMeta(TitleExtension):
     image = FilerFileField(
         null=True, blank=True, related_name='djangocms_page_meta_title',
         help_text=_('If empty, page image will be used for all languages.'),
-        on_delete=models.CASCADE
+        on_delete=models.SET_NULL
     )
     keywords = models.CharField(
         max_length=2000, default='', blank=True

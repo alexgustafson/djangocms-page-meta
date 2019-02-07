@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='genericmetaattribute',
             name='page',
-            field=models.ForeignKey(related_name='extra', blank=True, null=True, to='djangocms_page_meta.PageMeta'),
+            field=models.ForeignKey(related_name='extra', blank=True, null=True, to='djangocms_page_meta.PageMeta', on_delete=models.SET_NULL),
         ),
         migrations.AddField(
             model_name='genericmetaattribute',
