@@ -98,7 +98,8 @@ extension_pool.register(PageMeta)
 class TitleMeta(TitleExtension):
     image = FilerFileField(
         null=True, blank=True, related_name='djangocms_page_meta_title',
-        help_text=_('If empty, page image will be used for all languages.')
+        help_text=_('If empty, page image will be used for all languages.'),
+        on_delete=models.CASCADE
     )
     keywords = models.CharField(
         max_length=2000, default='', blank=True
