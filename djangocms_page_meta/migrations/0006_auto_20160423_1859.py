@@ -40,6 +40,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='genericmetaattribute',
             name='title',
-            field=models.ForeignKey(related_name='extra', blank=True, null=True, to='djangocms_page_meta.TitleMeta'),
+            field=models.ForeignKey(related_name='extra', blank=True, null=True, to='djangocms_page_meta.TitleMeta', on_delete=models.SET_NULL),
         ),
     ]

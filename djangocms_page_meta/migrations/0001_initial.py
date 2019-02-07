@@ -48,9 +48,9 @@ class Migration(migrations.Migration):
                 ('og_description', models.CharField(default=b'', max_length=400, verbose_name='Facebook Description', blank=True)),
                 ('twitter_description', models.CharField(default=b'', max_length=140, verbose_name='Twitter Description', blank=True)),
                 ('gplus_description', models.CharField(default=b'', max_length=400, verbose_name='Google+ Description', blank=True)),
-                ('extended_object', models.OneToOneField(editable=False, to='cms.Title')),
+                ('extended_object', models.OneToOneField(editable=False, to='cms.Title', on_delete=models.CASCADE)),
                 ('image', filer.fields.file.FilerFileField(related_name='djangocms_page_meta_title', blank=True, to='filer.File', help_text='If empty, page image will be used for all languages.', null=True, on_delete=models.SET_NULL)),
-                ('public_extension', models.OneToOneField(related_name='draft_extension', null=True, editable=False, to='djangocms_page_meta.TitleMeta')),
+                ('public_extension', models.OneToOneField(related_name='draft_extension', null=True, editable=False, to='djangocms_page_meta.TitleMeta', on_delete=models.SET_NULL)),
             ],
             options={
                 'verbose_name': 'Page meta info (language-dependent)',
