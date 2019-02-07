@@ -27,7 +27,8 @@ except ImportError:
 class PageMeta(PageExtension):
     image = FilerFileField(
         null=True, blank=True, related_name='djangocms_page_meta_page',
-        help_text=_('Used if title image is empty.')
+        help_text=_('Used if title image is empty.'),
+        on_delete=models.CASCADE
     )
     og_type = models.CharField(
         _('Resource type'), max_length=255, choices=meta_settings.FB_TYPES, blank=True,
